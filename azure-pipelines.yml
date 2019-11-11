@@ -21,17 +21,18 @@ steps:
   workingDirectory: './test-pipelines' 
   displayName: 'install Angular and proyect dependencies'
 
-- script: |
-    ng test
-    ng e2e
+- script: ng test
   workingDirectory: './test-pipelines' 
-  displayName: 'Run Angular tests'
+  displayName: 'Run Angular Unit tests'
+
+- script: ng e2e
+  workingDirectory: './test-pipelines' 
+  displayName: 'Run Angular e2e tests'
 
 - script: |
     ng build --prod --output-path $(Build.ArtifactStagingDirectory)
   workingDirectory: './test-pipelines' 
   displayName: 'build Angular proyect'
-
 
 - task: PublishBuildArtifacts@1
   inputs:
@@ -39,4 +40,3 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'Container'
   displayName: 'Publishing Artifact in drop'
-
