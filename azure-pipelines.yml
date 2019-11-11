@@ -48,7 +48,7 @@ stages:
       displayName: 'Publishing Artifact in drop'
     - task: ArchiveFiles@2
       inputs:
-        rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+        rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/drop'
         includeRootFolder: false
 
 - stage: 'Deploy'
