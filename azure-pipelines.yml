@@ -18,12 +18,25 @@ steps:
 - script: |
     npm install -g @angular/cli
     npm install
+  workingDirectory: './test-pipelines' 
+  displayName: 'install Angular and proyect dependencies'
+
+- script: |
+    ng test
+    ng e2e
+  workingDirectory: './test-pipelines' 
+  displayName: 'Run Angular tests'
+
+- script: |
     ng build --prod --output-path $(Build.ArtifactStagingDirectory)
   workingDirectory: './test-pipelines' 
-  displayName: 'npm install and build'
-  
+  displayName: 'build Angular proyect'
+
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
+  displayName: 'Publishing Artifact in drop'
+
