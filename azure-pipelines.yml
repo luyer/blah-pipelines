@@ -56,11 +56,16 @@ stages:
      runOnce:
       deploy:
        steps:
-       - download: current
-         artifact: drop
-       - task: AzureWebApp@1
-         inputs:
-          azureSubscription: 'test'
-          appType: webAppLinux
-          appName: 'test-pipelines'
-          package: '$(System.ArtifactsDirectory)/**/*.zip'
+        - task: DownloadBuildArtifacts@0
+          inputs:
+            buildType: 'current'
+            downloadType: 'specific'
+            itemPattern: '*.zip'
+            downloadPath: '$(System.ArtifactsDirectory)'
+        - task: AzureWebApp@1
+          inputs:
+            azureSubscription: 'test'
+            appType: webAppLinux
+            appName: 'test-pipelines'
+            package: '$(System.ArtifactsDirectory)/*.zip'
+
