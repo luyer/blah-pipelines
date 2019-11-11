@@ -18,9 +18,10 @@ steps:
 - script: |
     npm install -g @angular/cli
     npm install
-    ng build --prod
+    ng build --prod 
+  workingDirectory: './test-pipelines' 
   displayName: 'npm install and build'
-  workingDir: './test-pipelines'
+  
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
