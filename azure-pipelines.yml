@@ -48,7 +48,7 @@ stages:
       displayName: 'Publishing Artifact in drop'
     - task: ArchiveFiles@2
       inputs:
-        rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'
+        rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
         includeRootFolder: false
 
 - stage: 'Deploy'
@@ -63,7 +63,7 @@ stages:
      runOnce:
       deploy:
        steps:
-       - download: current
+       - download: current 
          artifact: drop
        - task: AzureWebApp@1
          displayName: 'Azure App Service Deploy: Angular site'
@@ -71,4 +71,4 @@ stages:
           azureSubscription: 'test'
           appType: webAppLinux
           appName: 'test-pipelines'
-          package: $(System.ArtifactsDirectory)/**
+          package: $(System.ArtifactsDirectory)/**/*.zip
