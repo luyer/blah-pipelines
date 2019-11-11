@@ -70,6 +70,6 @@ stages:
           azureSubscription: 'test'
           appType: webAppLinux
           appName: 'test-pipelines'
-          package: '$(System.DefaultWorkingDirectory)/*.zip'
+          package: '$(Pipeline.Workspace)/*.zip'
 
 
