@@ -65,7 +65,7 @@ stages:
           echo $(Build.ArtifactStagingDirectory)
           echo $(Pipeline.Workspace)
           echo $(Agent.BuildDirectory)
-          echo '$(Pipeline.Workspace)/drop/
+          ls $(Pipeline.Workspace)
        - task: AzureWebApp@1
          inputs:
           azureSubscription: 'test'
