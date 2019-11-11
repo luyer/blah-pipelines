@@ -63,6 +63,8 @@ stages:
           echo $(System.DefaultWorkingDirectory)
           echo $(System.ArtifactsDirectory)
           echo $(Build.ArtifactStagingDirectory)
+          echo $(Pipeline.Workspace)
+          echo $(Agent.BuildDirectory)
        - task: AzureWebApp@1
          inputs:
           azureSubscription: 'test'
