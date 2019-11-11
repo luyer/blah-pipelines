@@ -71,4 +71,4 @@ stages:
           azureSubscription: 'test'
           appType: webAppLinux
           appName: 'test-pipelines'
-          package: $(System.ArtifactsDirectory)/**/*.zip
+          package: $(System.ArtifactsDirectory)/**
