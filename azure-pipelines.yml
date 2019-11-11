@@ -27,13 +27,6 @@ stages:
       workingDirectory: './test-pipelines' 
       displayName: 'install Angular and proyect dependencies'
 
-    - script: ng test
-      workingDirectory: './test-pipelines' 
-      displayName: 'Run Angular Unit tests'
-
-    - script: ng e2e
-      workingDirectory: './test-pipelines' 
-      displayName: 'Run Angular e2e tests'
 
     - script: |
         ng build --prod --output-path $(Build.ArtifactStagingDirectory)
@@ -48,7 +41,7 @@ stages:
       displayName: 'Publishing Artifact in drop'
     - task: ArchiveFiles@2
       inputs:
-        rootFolderOrFile: '$(System.ArtifactsDirectory)'
+        rootFolderOrFile: 'Container'
         includeRootFolder: false
 
 - stage: 'Deploy'
