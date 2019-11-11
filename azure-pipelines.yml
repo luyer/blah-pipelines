@@ -54,13 +54,16 @@ stages:
   - deployment: Deploy
     pool:
      vmImage: 'ubuntu-latest'
-     deploy:
-      steps:
-      - download: current
-        artifact: drop
-      - task: AzureWebApp@1
-        displayName: 'Azure App Service Deploy: Angular site'
-        inputs:
+    environment: dev
+    strategy:
+     runOnce:
+      deploy:
+       steps:
+       - download: current
+         artifact: drop
+       - task: AzureWebApp@1
+         displayName: 'Azure App Service Deploy: Angular site'
+         inputs:
           azureSubscription: 'test'
           appType: 'webAppLinux'
           appName: 'test-pipelines'
