@@ -69,6 +69,6 @@ stages:
          displayName: 'Azure App Service Deploy: Angular site'
          inputs:
           azureSubscription: 'test'
-          appType: 'webAppLinux'
+          appType: webAppLinux
           appName: 'test-pipelines'
-          package: '$(Pipeline.Workspace)/drop/'
+          package: $(System.ArtifactsDirectory)/**/*.zip
