@@ -46,6 +46,10 @@ stages:
         ArtifactName: 'drop'
         publishLocation: 'Container'
       displayName: 'Publishing Artifact in drop'
+    - task: ArchiveFiles@2
+      inputs:
+        rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'
+        includeRootFolder: false
 
 - stage: 'Deploy'
   displayName: 'Deploy the app'
