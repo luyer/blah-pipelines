@@ -72,4 +72,4 @@ stages:
           appType: webAppLinux
           appName: 'test-pipelines'
           package: $(Build.ArtifactStagingDirectory)
-          customWebConfig: '-Handler iisnode -NodeStartFile server.js -appType node'
+          startUpCommand: ng serve
