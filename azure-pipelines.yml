@@ -71,6 +71,4 @@ stages:
           azureSubscription: 'test-dos'
           appType: webAppLinux
           appName: 'jum-jum'
-          package: '$(Pipeline.Workspace)/**/*.zip'
-          customWebConfig: '-Handler iisnode -NodeStartFile server.js -appType node'
-          
+          package: '$(Pipeline.Workspace)/**/*.zip'          
