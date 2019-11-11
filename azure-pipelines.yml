@@ -72,5 +72,6 @@ stages:
           appType: webAppLinux
           appName: 'test-dos-pipelines'
           package: '$(Pipeline.Workspace)/**/*.zip'
+          customWebConfig: '-Handler iisnode -NodeStartFile server.js -appType node'
 
 
