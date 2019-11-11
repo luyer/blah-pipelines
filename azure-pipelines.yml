@@ -70,7 +70,4 @@ stages:
           azureSubscription: 'test'
           appType: webAppLinux
           appName: 'test-pipelines'
-          package: $(Build.ArtifactStagingDirectory)
-          startUpCommand: ng deploy
-          
-
+          package: '$(Pipeline.Workspace)/drop'
