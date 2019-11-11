@@ -51,19 +51,17 @@ stages:
   displayName: 'Deploy the app'
   dependsOn: Build
   jobs:
-  - job: 'Deploy'
-    displayName: 'Deploy job'
+  - deployment: Deploy
     pool:
      vmImage: 'ubuntu-latest'
-
-     steps:
-     - download: current
-       artifact: drop
-     - task: AzureWebApp@1
-       displayName: 'Azure App Service Deploy: Angular site'
-       inputs:
-         azureSubscription: 'test'
-         appType: 'webAppLinux'
-         appName: 'test-pipelines'
-         package: '$(Pipeline.Workspace)/drop/'
-
+     deploy:
+      steps:
+      - download: current
+        artifact: drop
+      - task: AzureWebApp@1
+        displayName: 'Azure App Service Deploy: Angular site'
+        inputs:
+          azureSubscription: 'test'
+          appType: 'webAppLinux'
+          appName: 'test-pipelines'
+          package: '$(Pipeline.Workspace)/drop/'
