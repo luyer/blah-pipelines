@@ -71,5 +71,4 @@ stages:
           azureSubscription: 'test'
           appType: webAppLinux
           appName: 'test-pipelines'
-          package: $(System.DefaultWorkingDirectory)
-          customWebConfig: '-Handler iisnode -NodeStartFile server.js -appType node'
+          package: $(Build.ArtifactStagingDirectory)
