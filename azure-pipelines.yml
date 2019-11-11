@@ -68,7 +68,7 @@ stages:
           ls $(Pipeline.Workspace)
        - task: AzureWebApp@1
          inputs:
-          azureSubscription: 'test'
+          azureSubscription: 'test-dos'
           appType: webAppLinux
           appName: 'test-pipelines'
           package: '$(Pipeline.Workspace)/**/*.zip'
