@@ -65,10 +65,9 @@ stages:
        steps:
        - download: current 
          artifact: drop
-       - task: AzureWebApp@1
+       - task: PublishBuildArtifacts@1
          displayName: 'Azure App Service Deploy: Angular site'
          inputs:
-          azureSubscription: 'test'
-          appType: webAppLinux
-          appName: 'test-pipelines'
-          package: drop
+           PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+           ArtifactName: 'drop'
+           publishLocation: 'Container'
