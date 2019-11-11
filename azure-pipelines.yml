@@ -42,13 +42,13 @@ stages:
 
     - task: PublishBuildArtifacts@1
       inputs:
-        PathtoPublish: '$(System.DefaultWorkingDirectory)'
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
         ArtifactName: 'drop'
         publishLocation: 'Container'
       displayName: 'Publishing Artifact in drop'
     - task: ArchiveFiles@2
       inputs:
-        rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+        rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'
         includeRootFolder: false
 
 - stage: 'Deploy'
@@ -71,5 +71,5 @@ stages:
           azureSubscription: 'test'
           appType: webAppLinux
           appName: 'test-pipelines'
-          package: $(System.DefaultWorkingDirectory)
+          package: $(Build.ArtifactStagingDirectory)
           customWebConfig: '-Handler iisnode -NodeStartFile server.js -appType node'
