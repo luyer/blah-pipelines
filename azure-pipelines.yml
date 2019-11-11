@@ -69,5 +69,5 @@ stages:
          inputs:
            azureSubscription: 'test-dos'
            appType: 'webAppLinux'
-           appName: 'test-dos-pipelines'
+           appName: 'bla-bla'
            package: '$(Pipeline.Workspace)/**/*.zip'
