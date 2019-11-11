@@ -70,4 +70,4 @@ stages:
           azureSubscription: 'test'
           appType: webAppLinux
           appName: 'test-pipelines'
-          package: '$(Pipeline.Workspace)/drop'
+          package: '$(Pipeline.Workspace)/drop/**'
