@@ -60,16 +60,14 @@ stages:
 
        - script: |
           echo $(System.DefaultWorkingDirectory)
-          echo $(System.ArtifactsDirectory)
           echo $(Build.ArtifactStagingDirectory)
           echo $(Pipeline.Workspace)
-          echo $(Agent.BuildDirectory)
           ls $(Pipeline.Workspace)
        - task: AzureWebApp@1
          inputs:
            azureSubscription: 'test-dos'
            appType: 'webAppLinux'
-           appName: 'bla-bla'
+           appName: 'jum-jum'
            package: '$(Pipeline.Workspace)/**/*.zip'
            runtimeStack: 'DOTNETCORE|3.0'
 
