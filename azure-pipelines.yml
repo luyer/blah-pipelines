@@ -71,5 +71,5 @@ stages:
            appType: 'webAppLinux'
            appName: 'bla-bla'
            package: '$(Pipeline.Workspace)/**/*.zip'
-           startUpCommand: 'mv  -v /home/site/wwwroot/* /defaulthome/hostingstart/wwwroot/'
+           
            
