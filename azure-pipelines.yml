@@ -71,4 +71,5 @@ stages:
            appType: 'webAppLinux'
            appName: 'bla-bla'
            package: '$(Pipeline.Workspace)/**/*.zip'
+           runtimeStack: 'DOTNETCORE|3.0'
 
