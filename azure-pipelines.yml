@@ -71,5 +71,4 @@ stages:
            appType: 'webAppLinux'
            appName: 'bla-bla'
            package: '$(Pipeline.Workspace)/**/*.zip'
-           
-           
+
