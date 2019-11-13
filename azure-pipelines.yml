@@ -64,9 +64,8 @@ stages:
           ls $(Pipeline.Workspace)
        - task: AzureWebApp@1
          inputs:
-            azureSubscription: 'test-tres'
-            appType: 'webAppLinux'
-            appName: 'jum-jum'
+            azureSubscription: 'win'
+            appType: 'webApp'
+            appName: 'wtf-wtf'
             package: '$(Pipeline.Workspace)/**/*.zip'
-            runtimeStack: 'DOTNETCORE|3.0'
-            customDeployFolder: '/defaulthome/hostingstart/wwwroot'
+            deploymentMethod: 'auto'
