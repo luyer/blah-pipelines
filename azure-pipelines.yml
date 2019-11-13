@@ -48,8 +48,7 @@ stages:
   dependsOn: Build
   jobs:
   - deployment: Deploy
-    pool:
-     vmImage: 'ubuntu-latest'
+
     environment: dev
     strategy:
      runOnce:
@@ -65,18 +64,9 @@ stages:
           ls $(Pipeline.Workspace)
        - task: AzureWebApp@1
          inputs:
-           azureSubscription: 'test-tres'
-           appType: 'webAppLinux'
-           appName: 'jum-jum'
-           package: '$(Pipeline.Workspace)/**/*.zip'
-           runtimeStack: 'DOTNETCORE|3.0'
-
-
-       - task: AzureWebApp@1
-         inputs:
             azureSubscription: 'test-tres'
             appType: 'webAppLinux'
             appName: 'jum-jum'
             package: '$(Pipeline.Workspace)/**/*.zip'
             runtimeStack: 'DOTNETCORE|3.0'
-            customDeployFolder: '/defaulthome/hostingstart/wwwroot/'
+            customDeployFolder: '/defaulthome/hostingstart/wwwroot'
